@@ -1,0 +1,1 @@
+<div {{ $attributes->class('w-full h-1') }}></div>
