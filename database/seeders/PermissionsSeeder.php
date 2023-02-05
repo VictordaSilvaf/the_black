@@ -25,16 +25,26 @@ class PermissionsSeeder extends Seeder
         $role2 = Role::create(['name' => 'subscriber']);
         $role3 = Role::create(['name' => 'Super-Admin']);
 
-        Permission::create(['name' => 'subscribe']);
-        Permission::create(['name' => 'unsubscribe']);
+        Permission::create(['name' => 'can:subscribe']);
+        Permission::create(['name' => 'can:unsubscribe']);
 
         Permission::create(['name' => 'schedule:create']);
         Permission::create(['name' => 'schedule:delete']);
+        Permission::create(['name' => 'schedule:cancel']);
         Permission::create(['name' => 'schedule:edit']);
 
         Permission::create(['name' => 'portfolio:create']);
         Permission::create(['name' => 'portfolio:delete']);
         Permission::create(['name' => 'portfolio:edit']);
+
+        $role1->givePermissionTo('schedule:create');
+        $role1->givePermissionTo('schedule:cancel');
+        $role1->givePermissionTo('can:subscribe');
+
+        $role2->givePermissionTo('schedule:create');
+        $role2->givePermissionTo('schedule:cancel');
+        $role2->givePermissionTo('schedule:edit');
+        $role2->givePermissionTo('can:unsubscribe');
 
         $user = User::factory()->create([
             'name' => 'Client',

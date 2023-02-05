@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ScheduleController;
+use App\Http\Controllers\SubscribeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,15 +17,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.home');
 })->name('home');
 
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified'
-])->group(fn () => Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard'));
+])->group(fn() => Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard'));
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::resource('schedule', ScheduleController::class);
+    Route::resource('signature', SubscribeController::class);
 });
+
+Route::resource('portfolio', ScheduleController::class);
+Route::get('about', fn() => view('pages.about'))->name('about.index');
+

@@ -2,16 +2,18 @@
     <div class="flex w-3/4 justify-evenly">
         <div class="flex h-auto items-center space-x-8 lg:space-x-16 ">
             <x-nav-button href="{{ route('home') }}" :active="request()->routeIs('home')">Home</x-nav-button>
-            <x-nav-button href="{{ route('dashboard') }}" :active="request()->routeIs('portfolio*')">Portfolio</x-nav-button>
+            <x-nav-button href="{{ route('portfolio.index') }}" :active="request()->routeIs('portfolio*')">Portfolio</x-nav-button>
             <x-nav-button href="{{ route('schedule.index') }}" :active="request()->routeIs('schedule*')">Agenda</x-nav-button>
         </div>
+
         <div class="py-2 text-white">
-{{--            <x-logo/>--}}
+            <x-logo/>
         </div>
+
         <div class="flex h-auto items-center space-x-8 lg:space-x-16 ">
-            <x-nav-button href="{{ route('dashboard') }}" :active="request()->routeIs('signature*')">Assinatura
+            <x-nav-button href="{{ route('signature.index') }}" :active="request()->routeIs('signature*')">Assinatura
             </x-nav-button>
-            <x-nav-button href="{{ route('dashboard') }}" :active="request()->routeIs('about*')">Sobre Nós</x-nav-button>
+            <x-nav-button href="{{ route('about.index') }}" :active="request()->routeIs('about*')">Sobre Nós</x-nav-button>
             @auth()
                 <form class="flex h-full items-center" method="POST" action="{{ route('logout') }}" x-data>
                     @csrf

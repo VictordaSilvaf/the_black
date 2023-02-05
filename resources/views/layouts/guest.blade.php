@@ -18,7 +18,7 @@
 <div class="relative font-sans text-gray-900 antialiased bg-lightBlack">
     <x-header class="absolute bg-blue-500"></x-header>
     <main class="w-full flex justify-center text-white">
-        <div class="container">{{ $slot }}</div>
+        <div class="{{ (Route::getCurrentRoute()->getName() == 'home') ? 'w-full' : 'container'}}">{{ $slot }}</div>
     </main>
 </div>
 </body>
