@@ -4,6 +4,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\SubscribeController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,4 +34,3 @@ Route::middleware('auth:sanctum')->group(function () {
 
 Route::resource('portfolio', ScheduleController::class);
 Route::get('about', fn() => view('pages.about'))->name('about.index');
-

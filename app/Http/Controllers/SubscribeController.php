@@ -9,18 +9,20 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Response;
+use Illuminate\Http\Request;
 
 class SubscribeController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
+     * @param Request $request
      * @return Application|Factory|View
      */
-    public function index()
+    public function index(Request $request): View|Factory|Application
     {
         if (!auth()->user()->can('can:subscribe')) {
-            return view('pages.subscribe.create');
+            return $this->create($request);
         }
         return view('pages.subscribe.index');
     }
@@ -28,11 +30,16 @@ class SubscribeController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return Response
+     * @param Request $request
+     * @return Application|Factory|View
      */
-    public function create()
+    public function create(Request $request): Application|Factory|View
     {
-        //
+        $payLink = $request->user()
+            ->newSubscription('default', $premium = 34567)
+            ->create();
+
+        return view('pages.subscribe.create', ['payLink' => $payLink]);
     }
 
     /**

@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Subscription;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Paddle\Cashier;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -21,8 +23,8 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(): void
     {
-        //
+        Cashier::useSubscriptionModel(Subscription::class);
     }
 }

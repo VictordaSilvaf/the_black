@@ -17,6 +17,7 @@
 
     <!-- Styles -->
     @livewireStyles
+    @paddleJS
 </head>
 <body class="font-sans antialiased bg-lightBlack">
 <div class="min-h-screen">
