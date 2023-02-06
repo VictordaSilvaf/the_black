@@ -19,10 +19,13 @@ class SubscribeController extends Controller
      * @param Request $request
      * @return Application|Factory|View
      */
-    public function index(Request $request): View|Factory|Application
+    public function index(Request $request)
     {
-        if (!auth()->user()->can('can:subscribe')) {
-            return $this->create($request);
+        if (auth()->user()->can('can:subscribe')) {
+//          return $request->user()->redirectToBillingPortal(route('home'));
+            $request->user()->newSubscription(
+                'default', 'price_monthly'
+            )->quantity(120)->create($request->paymentMethodId);
         }
         return view('pages.subscribe.index');
     }
@@ -35,11 +38,7 @@ class SubscribeController extends Controller
      */
     public function create(Request $request): Application|Factory|View
     {
-        $payLink = $request->user()
-            ->newSubscription('default', $premium = 34567)
-            ->create();
-
-        return view('pages.subscribe.create', ['payLink' => $payLink]);
+        return $request->user()->redirectToBillingPortal();
     }
 
     /**
