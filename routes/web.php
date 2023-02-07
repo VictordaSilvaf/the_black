@@ -30,7 +30,15 @@ Route::middleware([
 Route::middleware('auth:sanctum')->group(function () {
     Route::resource('schedule', ScheduleController::class);
     Route::resource('signature', SubscribeController::class);
+
+    Route::group(['prefix' => 'checkout'], function () {
+        Route::post('/', [App\Http\Controllers\SubscribeController::class, 'checkout'])->name('checkout');
+        Route::get('/success', [App\Http\Controllers\SubscribeController::class, 'success'])->name('checkout.success');
+        Route::get('/cancel', [App\Http\Controllers\SubscribeController::class, 'cancel'])->name('checkout.cancel');
+        Route::get('/webhook', [App\Http\Controllers\SubscribeController::class, 'webhook'])->name('checkout.webhook');
+    });
 });
+
 
 Route::resource('portfolio', ScheduleController::class);
 Route::get('about', fn() => view('pages.about'))->name('about.index');
