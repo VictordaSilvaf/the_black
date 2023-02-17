@@ -1,1 +1,1 @@
-<button {{$attributes->class('py-2 px-4 rounded-lg')}}>{{ $slot }}</button>
+<button {{$attributes->class('py-2 px-4 rounded-lg  duration-150 cursor-pointer focus:ring-2')}}>{{ $slot }}</button>

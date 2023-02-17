@@ -16,13 +16,8 @@ return new class extends Migration
         Schema::create('schedules', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->date('date');
-            $table->time('time');
-            $table->string('status');
-            $table->string('payment_id');
-            $table->string('payment_status');
-            $table->string('payment_method');
-            $table->string('payment_amount');
+            $table->foreignId('order_id')->nullable()->constrained()->cascadeOnDelete();
+            $table->dateTime('date');
             $table->timestamps();
         });
     }

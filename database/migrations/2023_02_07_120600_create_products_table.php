@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name', 255);
             $table->string('description', 255)->nullable();
             $table->integer('quantity')->default(1);
+            $table->string('duration', 4)->nullable()->default('45');
             $table->string('type', 50)->default('product');
             $table->decimal('price', 6, 2);
             $table->string('image', 1024)->nullable();

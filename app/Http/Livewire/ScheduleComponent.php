@@ -10,7 +10,7 @@ use Livewire\Component;
 
 class ScheduleComponent extends Component
 {
-    public $datePicker;
+    public $datepicker;
 
     public function mount()
     {
@@ -19,11 +19,6 @@ class ScheduleComponent extends Component
     public function updatedDatePicker()
     {
         $this->emit('datePickerUpdated', $this->datePicker);
-    }
-
-    public function changeDate()
-    {
-        dd($this);
     }
 
     public function render(): Factory|View|Application

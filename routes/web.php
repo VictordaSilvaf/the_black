@@ -21,12 +21,6 @@ Route::get('/', function () {
     return view('pages.home');
 })->name('home');
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(fn() => Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard'));
-
 Route::middleware('auth:sanctum')->group(function () {
     Route::resource('schedule', ScheduleController::class);
     Route::resource('signature', SubscribeController::class);
@@ -37,6 +31,8 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::get('/cancel', [App\Http\Controllers\SubscribeController::class, 'cancel'])->name('checkout.cancel');
         Route::get('/webhook', [App\Http\Controllers\SubscribeController::class, 'webhook'])->name('checkout.webhook');
     });
+
+    Route::post('schedule/search', [ScheduleController::class, 'search'])->name('schedule.search');
 });
 
 

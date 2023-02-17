@@ -8,9 +8,9 @@
             </x-nav-button>
         </div>
 
-        <div class="py-2 text-white">
+        <a href="{{route('home')}}" class="py-2 text-white">
             <x-logo/>
-        </div>
+        </a>
 
         <div class="flex h-auto items-center space-x-8 lg:space-x-16 ">
             @role('client')

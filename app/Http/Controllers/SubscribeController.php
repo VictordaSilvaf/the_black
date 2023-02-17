@@ -37,7 +37,7 @@ class SubscribeController extends Controller
 
     public function checkout(Request $request)
     {
-        $product = Product::where('type', 'subscription')->where('quantity', 3)->firstOrFail();
+        $product = Product::where('type', 'subscription')->where('quantity', 2)->firstOrFail();
         $totalPrice = $product->price;
 
         $stripe = new StripeClient(env('STRIPE_SECRET'));

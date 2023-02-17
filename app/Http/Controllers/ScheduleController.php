@@ -9,6 +9,7 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Response;
+use Illuminate\Http\Request;
 
 class ScheduleController extends Controller
 {
@@ -19,7 +20,9 @@ class ScheduleController extends Controller
      */
     public function index(): View|Factory|Application
     {
-        return view('pages.schedule.create');
+        $schedules = Schedule::paginate(20);
+
+        return view('pages.schedule.index', compact('schedules'));
     }
 
     /**
@@ -86,5 +89,11 @@ class ScheduleController extends Controller
     public function destroy(Schedule $schedule)
     {
         //
+    }
+
+    public function search(Request $request)
+    {
+        $schedules = Schedule::where('date', 'like', '%' . $request->search . '%')->paginate(20);
+        return view('pages.schedule.index', compact('schedules'));
     }
 }
