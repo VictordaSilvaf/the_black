@@ -75,6 +75,7 @@ return array(
     'Laravel\\Sail\\' => array($vendorDir . '/laravel/sail/src'),
     'Laravel\\Paddle\\' => array($vendorDir . '/laravel/cashier-paddle/src'),
     'Laravel\\Jetstream\\' => array($vendorDir . '/laravel/jetstream/src'),
+    'Laravel\\Horizon\\' => array($vendorDir . '/laravel/horizon/src'),
     'Laravel\\Fortify\\' => array($vendorDir . '/laravel/fortify/src'),
     'Laravel\\Cashier\\Database\\Factories\\' => array($vendorDir . '/laravel/cashier/database/factories'),
     'Laravel\\Cashier\\' => array($vendorDir . '/laravel/cashier/src'),

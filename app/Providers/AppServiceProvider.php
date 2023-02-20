@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Subscription;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Horizon\Horizon;
 use Laravel\Paddle\Cashier;
 
 class AppServiceProvider extends ServiceProvider
@@ -26,5 +27,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Cashier::useSubscriptionModel(Subscription::class);
+
+        Horizon::auth(function ($request) {
+            return true;
+        });
     }
 }

@@ -29,9 +29,18 @@ class SubscribeController extends Controller
             return redirect()->route('checkout');
         }
 
-        $order = auth()->user()->orders()->first();
-        $product = auth()->user()->orders()->first()->product()->first();
+        if (auth()->user()->hasRole('Super-Admin')) {
+            return redirect()->route('dashboard');
+        }
 
+        if (auth()->user()->can('can:unsubscribe') && auth()->user()->orders()->count() === 0) {
+            auth()->user()->assignRole('client');
+            auth()->user()->removeRole('subscriber');
+            return redirect()->route('home');
+        }
+
+        $order = auth()->user()->orders()->first();
+        $product = $order->product()->first();
         return view('pages.subscribe.index', compact('order', 'product'));
     }
 
@@ -56,7 +65,7 @@ class SubscribeController extends Controller
             ]],
             'mode' => 'payment',
             'success_url' => route('checkout.success', [], true) . "?session_id={CHECKOUT_SESSION_ID}",
-            'cancel_url' => route('checkout.cancel', [], true),
+            'cancel_url' => route('home', [], true),
         ]);
 
         $order = new Order();

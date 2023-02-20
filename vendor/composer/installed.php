@@ -3,7 +3,7 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'b8596396e0190009924621e7a88917bb93a63a8f',
+        'reference' => '438328921988228da3ab96707587931f6521f11a',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -427,6 +427,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'laravel/horizon' => array(
+            'pretty_version' => 'v5.14.2',
+            'version' => '5.14.2.0',
+            'reference' => 'd41a14c601766af0e2cce9486fd5dd143688c25f',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../laravel/horizon',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'laravel/jetstream' => array(
             'pretty_version' => 'v2.16.0',
             'version' => '2.16.0.0',
@@ -439,7 +448,7 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'b8596396e0190009924621e7a88917bb93a63a8f',
+            'reference' => '438328921988228da3ab96707587931f6521f11a',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

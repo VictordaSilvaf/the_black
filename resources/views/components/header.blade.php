@@ -1,4 +1,4 @@
-<div {{ $attributes->class('z-10 h-32 w-full bg-darkBlack flex justify-center items-center sticky top-0 ') }}>
+<div {{ $attributes->class('z-10 h-32 w-full flex justify-center items-center sticky top-0 bg-darkBlack') }}>
     <div class="flex w-3/4 justify-evenly">
         <div class="flex h-auto items-center space-x-8 lg:space-x-16 ">
             <x-nav-button href="{{ route('home') }}" :active="request()->routeIs('home')">Home</x-nav-button>
