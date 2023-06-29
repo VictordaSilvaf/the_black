@@ -42,7 +42,9 @@ Esse projeto é um sistema de agendamento de horários para uma barbearia local,
     -w /var/www/html \
     laravelsail/php82-composer:latest \
     composer install --ignore-platform-reqs`
+- Rode o sail com o comando `./vendor/bin/sail up -d`
 - Instale as dependências com `./vendor/bin/sail npm i`
+- Rode as migrations e as popule para os testes `./vendor/bin/sail art migrate --seed`
 - Inicie o servidor com `/vendor/bin/sail npm run dev`
 
 Agora você pode acessar [`localhost`](http://localhost) do seu navegador.
