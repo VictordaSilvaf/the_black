@@ -1,1 +1,1 @@
-<img src="{{url("/logo.svg")}}" alt="logo" class="w-full h-full">
+<img src="{{url("/logo.svg")}}" alt="logo" class="w-auto h-full">
