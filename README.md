@@ -17,14 +17,14 @@
 <br>
 
 <p align="center">
-  <img alt="Happy" src=".github/project_img.png" width="100%">
+  <img alt="TheBlack" src=".github/project_img.png" width="100%">
 </p>
 
 ## ✨ Tecnologias
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-- [https://laravel.com/](https://laravel.com/)
+- [Laravel](https://laravel.com/)
 - [Tailwind](https://tailwindcss.com/)
 - [Livewire](https://laravel-livewire.com/)
 
